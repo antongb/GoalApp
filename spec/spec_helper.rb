@@ -80,3 +80,11 @@ RSpec.configure do |config|
   end
 =end
 end
+
+def login! user
+  visit new_session_url
+  fill_in 'username', with: user.username
+  fill_in 'password', with: 'password'
+  click_button "Login User"
+  # click_button "Add Goal"
+end

@@ -1,1 +1,26 @@
 <%=@user.username.capitalize%>
+<% @user.goals.each do |goal| %>
+  <% if goal.private == "false" %>
+
+      <h3><%= goal.title %></h3>
+      <ul>
+        <li><%= goal.description %><br>
+          <% if goal.completed == "t" %>
+            Completed!
+            <% end %>
+    </ul>
+    <% elsif goal.private == "t" %>
+      <% if !current_user.nil? && goal.user_id == current_user.id %>
+
+        <h3><%= goal.title %></h3>
+        <ul>
+          <li><%= goal.description %><br>
+            <% if goal.completed == "t" %>
+              Completed!
+              <% end %>
+          </ul>
+        <% end %>
+    <% end %>
+
+<% end %>
+<%=button_to "Add Goal", new_goal_url, method: :get %>

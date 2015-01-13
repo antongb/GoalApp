@@ -1,0 +1,20 @@
+<h1>New Goal</h1>
+
+<%= render "layouts/errors" %>
+<form action="/goals" method="POST" >
+
+  <input type="hidden"
+  name="authenticity_token"
+  value="<%=form_authenticity_token%>" >
+
+  <label for="goal">Goal</label>
+  <input type="text" name=goal[title] id="goal" >
+
+  <label for="desc">Description</label>
+  <input type="text" name=goal[description] id="desc" value="Title says it all" >
+
+  <label for="pub">Public</label>
+  <input type="checkbox" name="goal[private]" id="pub" value="false">
+
+  <input type="submit" value="Save Goal">
+</form>
