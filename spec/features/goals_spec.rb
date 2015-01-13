@@ -30,7 +30,6 @@ feature "users show page shows goals" do
     login!(@user)
     visit user_url(@user)
     expect(page).to have_content("Completed!")
-    save_and_open_page
   end
 
 
